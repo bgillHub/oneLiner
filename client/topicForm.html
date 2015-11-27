@@ -1,7 +1,7 @@
 <template name = "topicForm">
   <div class = 'container'>
-  	  <div class ="row">
   	<div class = "col-md-12">
+  		<h2>Fill out the topic form, please.</h2>
   		<form class="form-horizontal">
   			<div class="form-group">
   				<label class="col-md-2 control-label">Topic Name:</label>
@@ -11,14 +11,15 @@
   			</div>
   			<div class="form-group">
   				<label class="col-md-2 control-label">Topic Difficulty Level:</label>
+  					 <label class="radio-inline"><input type="radio" name="topicDifficulty" id="easyDifficulty" value='Easy'>Easy</label>
+					<label class="radio-inline"><input type="radio" name="topicDifficulty" id="mediumDifficulty" value='Medium'>Medium</label>
+					<label class="radio-inline"><input type="radio" name="topicDifficulty" id="hardDifficulty" value='Medium'>Difficult</label> 
+					<label class="radio-inline"><input type="radio" name="topicDifficulty" id="proDifficulty" value='Professional'>Professional</label> 
+  			</div>
+  			 <div class="form-group">
+  				<label class="col-md-2 control-label">Description</label>
   				<div class ="col-md-10">
-  					<input type="radio" name="topicDifficulty" value="easy" checked>Easy
-  					<br>
-  					<input type="radio" name="topicDifficulty" value="medium">Medium
-  					<br>
-  					<input type="radio" name="topicDifficulty" value="hard">Hard
-  					<br>
-  					<input type="radio" name="topicDifficulty" value="professional">Professional
+  				  <textarea class="form-control" rows="5" id="description"></textarea>
   				</div>
   			</div>
   			<div class="form-group">
@@ -34,6 +35,5 @@
   			</div>
   		</form>
   	</div>
-  </div>
   </div>
 </template>
