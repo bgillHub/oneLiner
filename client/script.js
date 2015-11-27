@@ -2,7 +2,7 @@ JavaTopics = new Mongo.Collection('JavaTopics');
 Template.topicForm.events({
   'click #submit-btn': function(event, template){
     let topicName = template.find('#topicName').value;
-    let topicDifficulty = template.find('#topicDifficulty').value;
+    let topicDifficulty = template.find('topicDifficulty').value;
     let tags = template.find('#tags').value;
     let description = template.find('#description').value;
 
@@ -12,7 +12,8 @@ Template.topicForm.events({
       tags: tags,
       description: description
       }
-    JavaTopics.insert(topic);
+    if (description != null) {JavaTopics.insert(topic);
     alert("New Entry: " + topic.topicName + ", " + topic.topicDifficulty);
+    }
   }
 });
