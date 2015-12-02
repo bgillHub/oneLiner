@@ -1,3 +1,13 @@
+
 div.topicWrap {
 	margin: 10px;
+	color: white;
+}
+
+div.forumHeader {
+	margin: 45px;
+	color: white;
+	background-color: red;
+	text-align: center;
+	font-size: 24px;
 }
