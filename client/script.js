@@ -8,10 +8,23 @@ var javaScriptID = 0;
 var PythonID = 0;
 var ScalaID = 0;
 
+Template.javaNews.loadTopic = function(){
+  Meteor.defer(function () {
+    var b = document.createElement('button');
+    b.setAttribute('content', 'myTopic');
+    b.setAttribute('class', 'btn');
+    b.innerHTML = JavaTopics.find({});
+    b.style.background = 'red';
+    b.style.color = 'white';
+    var wrapper = document.getElementById("buttonWrap");
+    wrapper.appendChild(b);
+  });
+};
+
 Template.javaTopicForm.events({
   'click #submit-btn': function(event, template){
     let topicName = template.find('#topicName').value;
-    let topicDifficulty = template.find('topicDifficulty').value;
+    let topicDifficulty = template.find('#topicDifficulty').value;
     let description = template.find('#description').value;
     javaID = (javaID + 1);
     let topic = {
@@ -21,17 +34,16 @@ Template.javaTopicForm.events({
       javaID: javaID
       }
     JavaTopics.insert(topic);  
-    alert("New Entry: " + topic.topicName + ", " + topic.topicDifficulty);
+    Router.go('/topicReader');
     }
-  }
-});
+  });
 
 Template.javaScriptTopicForm.events({
   'click #submit-btn': function(event, template){
     let topicName = template.find('#topicName').value;
-    let topicDifficulty = template.find('topicDifficulty').value;
+    let topicDifficulty = template.find('#topicDifficulty').value;
     let description = template.find('#description').value;
-    javaID = (javaID + 1);
+    javaScriptID = (javaScriptID + 1);
     let topic = {
       topicName: topicName,
       topicDifficulty: topicDifficulty,
@@ -41,13 +53,12 @@ Template.javaScriptTopicForm.events({
     JavaScriptTopics.insert(topic);  
     alert("New Entry: " + topic.topicName + ", " + topic.topicDifficulty);
     }
-  }
-});
+  });
 
 Template.scalaTopicForm.events({
   'click #submit-btn': function(event, template){
     let topicName = template.find('#topicName').value;
-    let topicDifficulty = template.find('topicDifficulty').value;
+    let topicDifficulty = template.find('#topicDifficulty').value;
     let description = template.find('#description').value;
     scalaID = (scalaID + 1);
     let topic = {
@@ -59,13 +70,12 @@ Template.scalaTopicForm.events({
     ScalaTopics.insert(topic);  
     alert("New Entry: " + topic.topicName + ", " + topic.topicDifficulty);
     }
-  }
-});
+  });
 
 Template.pythonTopicForm.events({
   'click #submit-btn': function(event, template){
     let topicName = template.find('#topicName').value;
-    let topicDifficulty = template.find('topicDifficulty').value;
+    let topicDifficulty = template.find('#topicDifficulty').value;
     let description = template.find('#description').value;
     pythonID = (pythonID + 1);
     let topic = {
@@ -77,5 +87,21 @@ Template.pythonTopicForm.events({
     PythonTopics.insert(topic);  
     alert("New Entry: " + topic.topicName + ", " + topic.topicDifficulty);
     }
-  }
-});
+  });
+
+Template.topicReader.rendered = function () {
+      var z = document.createElement('p');
+      var x = document.createElement('p');
+      x.setAttribute('content', 'myTitle');
+      x.style.background = 'black';
+      x.style.color = 'white';
+    z.setAttribute('content', 'myTopic');
+    var topicHTML = JavaTopics.findOne();
+    x.innerHTML = topicHTML.topicName;
+    z.innerHTML = topicHTML.description;
+    z.style.background = 'red';
+    z.style.color = 'white';
+      var mainBody = document.getElementById("body");
+      mainBody.appendChild(x);
+      mainBody.appendChild(z);
+}
