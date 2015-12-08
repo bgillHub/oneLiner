@@ -33,7 +33,7 @@ Template.javaTopicForm.events({
       description: description,
       javaID: javaID
       }
-    JavaTopics.insert(topic);  
+    JavaTopics.insert(topic); 
     Router.go('/topicReader');
     }
   });
@@ -50,9 +50,9 @@ Template.javaScriptTopicForm.events({
       description: description,
       javaScriptID: javaScriptID
       }
-    JavaScriptTopics.insert(topic);  
-    alert("New Entry: " + topic.topicName + ", " + topic.topicDifficulty);
-    }
+    JavaScriptTopics.insert(topic); 
+    Router.go('/topicReader');
+      }
   });
 
 Template.scalaTopicForm.events({
@@ -68,7 +68,7 @@ Template.scalaTopicForm.events({
       scalaID: scalaID
       }
     ScalaTopics.insert(topic);  
-    alert("New Entry: " + topic.topicName + ", " + topic.topicDifficulty);
+    Router.go('/topicReader');
     }
   });
 
@@ -85,7 +85,7 @@ Template.pythonTopicForm.events({
       pythonID: pythonID
       }
     PythonTopics.insert(topic);  
-    alert("New Entry: " + topic.topicName + ", " + topic.topicDifficulty);
+    Router.go('/topicReader');
     }
   });
 
