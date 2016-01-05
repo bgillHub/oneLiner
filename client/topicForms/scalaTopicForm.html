@@ -1,4 +1,26 @@
 <template name = "scalaTopicForm">
+  <nav class="navbar navbar-default">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Explore</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">OneLiner</a>
+    </div>
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li><a href="/languages">Home</a></li>
+        <li><a href="/javaNews">Java</a></li>
+        <li><a href="/javascriptNews">Javascript</a></li>
+        <li><a href="/pythonNews">Python</a></li>
+        <li><a href="/scalaNews">Scala</a></li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+</nav>
   <div class = 'container'>
   	<div class = "col-md-12">
   		<h2>Fill out the topic form, please.</h2>
@@ -14,7 +36,6 @@
   				<label class="radio-inline"><input type="radio" name="topicDifficulty" id="easyDifficulty" value='Easy'>Easy</label>
 					<label class="radio-inline"><input type="radio" name="topicDifficulty" id="mediumDifficulty" value='Medium'>Medium</label>
 					<label class="radio-inline"><input type="radio" name="topicDifficulty" id="hardDifficulty" value='Medium'>Hard</label> 
-					<label class="radio-inline"><input type="radio" name="topicDifficulty" id="proDifficulty" value='Professional'>Professional</label> 
   			</div>
   			 <div class="form-group">
   				<label class="control-label">Description</label>

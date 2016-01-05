@@ -25,7 +25,7 @@ var ScalaID = 0;
 
 
 Template.javaTopicForm.events({
-  'click #submit': function(event, template){
+  'click #submitTopic': function(event, template){
     let topicName = template.find('#topicName').value;
     let topicDifficulty = template.find('#topicDifficulty').value;
     let description = template.find('#description').value;
@@ -38,7 +38,8 @@ Template.javaTopicForm.events({
       javaID: javaID,
       responses: responses
       }
-    JavaTopics.insert(topic); 
+    JavaTopics.insert(topic);
+    Router.go('/topicReader'); 
     }
   });
 
@@ -108,7 +109,6 @@ Template.easyPost.events({
 
 
 Template.topicReader.rendered = function () {
-      Meteor.subscribe('JavaTopics');
       var z = document.createElement('p');
       var x = document.createElement('p');
       var c = document.createElement('p');
@@ -146,6 +146,48 @@ Template.javaNews.loadTopic = function(){
 
 
 Template.javaNews.helpers({
+  topics: function () {
+    return JavaTopics.find();
+  },
+  titleFormat: function () {
+    return this.topicName;
+  },
+  colorPicker: function () {
+    if (this.topicDifficulty == "Easy") {return "rgb(255, 93, 10)"};
+    if (this.topicDifficulty == "Medium") {return "rgb(255, 93, 10)"};
+    if (this.topicDifficulty == "Hard") {return "rgb(255, 93, 10)"};
+  }
+});
+
+Template.javascriptNews.helpers({
+  topics: function () {
+    return JavaTopics.find();
+  },
+  titleFormat: function () {
+    return this.topicName;
+  },
+  colorPicker: function () {
+    if (this.topicDifficulty == "Easy") {return "rgb(255, 93, 10)"};
+    if (this.topicDifficulty == "Medium") {return "rgb(255, 93, 10)"};
+    if (this.topicDifficulty == "Hard") {return "rgb(255, 93, 10)"};
+  }
+});
+
+Template.pythonNews.helpers({
+  topics: function () {
+    return JavaTopics.find();
+  },
+  titleFormat: function () {
+    return this.topicName;
+  },
+  colorPicker: function () {
+    if (this.topicDifficulty == "Easy") {return "rgb(255, 93, 10)"};
+    if (this.topicDifficulty == "Medium") {return "rgb(255, 93, 10)"};
+    if (this.topicDifficulty == "Hard") {return "rgb(255, 93, 10)"};
+  }
+});
+
+Template.scalaNews.helpers({
   topics: function () {
     return JavaTopics.find();
   },

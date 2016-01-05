@@ -1,21 +1,35 @@
 <template name = "javaNews" style ="background-color: rgb(117, 157, 52)">
+  <nav class="navbar navbar-default">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Explore</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">OneLiner</a>
+    </div>
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li><a href="/languages">Home</a></li>
+        <li class ="active"><a href="/javaNews">Java</a></li>
+        <li><a href="/javascriptNews">Javascript</a></li>
+        <li><a href="/pythonNews">Python</a></li>
+        <li><a href="/scalaNews">Scala</a></li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+</nav>
 	<div class ="container" height='100%' style="background-color:rgb(76, 45, 115)">
 		<div class ='forumHeader'>
 			All Java Topics
 		</div>
 		<row >
-			<div class = 'topicWrap'><div class ="col-md-10 col-md-offset-1 text-center" style="background-color: rgb(255, 93, 10)">Creating a JTable </div><a href="/mediumPost" class="btn btn-info" role="button">Reply</a></div>
-			<div class = 'topicWrap'><div class = "col-md-10 col-md-offset-1 text-center" style="background-color: rgb(85, 175, 57)">Making Fibonacci</div><a href="/easyPost" class="btn btn-info" role="button">Reply</a></div>
-			<div class = 'topicWrap'><div class = "col-md-10 col-md-offset-1 text-center" style="background-color: rgb(85, 175, 57)">Layouts - HELP!!!</div><a href="/easyPost" class="btn btn-info" role="button">Reply</a></div>
-		</row>
-		<row >
-			<div class = 'topicWrap'><div class ="col-md-10 col-md-offset-1 text-center" style="background-color: rgb(205, 13, 18)">Client/server problem</div> <a href="/hardPost" class="btn btn-info" role="button">Reply</a></div>
-			<div class = 'topicWrap'><div class ="col-md-10 col-md-offset-1 text-center" style="background-color: rgb(255, 93, 10)">Animating a game</div> <a href="/mediumPost" class="btn btn-info" role="button">Reply</a></div>
-			<div class = 'topicWrap'><a href = '/topicReader'><div class ="col-md-10 col-md-offset-1 text-center" style="background-color: rgb(255, 93, 10)">Multi-Thread Library</div></a><a href="/mediumPost" class="btn btn-info" role="button">Reply</a></div>
 			{{#each topics}}
-              <center><div width="100%" style="background-color: rgb(205, 13, 18)">{{titleFormat}}</div></center>
-              <center><a href="/mediumPost" class="btn btn-info" role="button"><div>Reply</div></a></center>
-            {{/each}}
+        <center><div width="100%" style="background-color: rgb(205, 13, 18); color: white">{{titleFormat}}</div></center>
+        <center><a href="/mediumPost" class="btn btn-info" role="button"><div>Reply</div></a></center>
+      {{/each}}
 		</row>
 	</div>
 		<center><a href ='/javaTopicForm'><button type="button" class="btn btn-primary" width='1000px'>Create New Post</button></a></center>
