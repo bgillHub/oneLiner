@@ -1,4 +1,5 @@
 <template name = "languages">
+  <div class="pageHolder">
 	<nav class="navbar navbar-default">
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
@@ -8,7 +9,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="#">OneLiner</a>
+      <a class="navbar-brand" href="/myPosts">View My Posts</a>
     </div>
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -23,19 +24,20 @@
 </nav>
 	<div class ="container">
 		<center>
-		<h1>Choose a language!</h1>
-		<div class ="languageContainer">
-			<a href="/javascriptNews"><img src = "img/javascript.jpg" height ='100' width='70'></a>
+		<h1>Choose a language forum.</h1>
+		<div class ="forumBox">
+			<a href="/javascriptNews"><img src = "img/javascript.jpg" height ="100" width='70'></a>
 		</div>
-		<div class="languageContainer">
-			<a href="/javaNews"><img src="/img/java.jpg" height ='100' width='70'></a>
+		<div class="forumBox">
+			<a href="/javaNews"><img src="/img/java.jpg" height ="100" width='70'></a>
 		</div>
-		<div class="languageContainer">
-			<a href="/scalaNews"><img src="/img/scala.jpg" height ='100' width='70'></a>
+		<div class="forumBox">
+			<a href="/scalaNews"><img src="/img/scala.jpg" height ="100" width='70'></a>
 		</div>
-		<div class="languageContainer">
-			<a href="/pythonNews"><img src="/img/python.jpg" height ='100' width='70'></a>
+		<div class="forumBox">
+			<a href="/pythonNews"><img src="/img/python.jpg" height ="100" width='70'></a>
 		</div>
 	</center>
 	</div>
+</div>
 </template>

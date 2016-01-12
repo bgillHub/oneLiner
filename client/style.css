@@ -1,7 +1,9 @@
 
 div.topicWrap {
-	margin: 10px;
-	color: white; 
+	margin: 20px;
+	color: rgb(255,215,0); 
+	border-color: white;
+	border: 3px;
 }
 
 div.forumHeader {
@@ -10,4 +12,16 @@ div.forumHeader {
 	background-color: red;
 	text-align: center;
 	font-size: 24px;
+}
+
+div.forumBox {
+	margin: 25px;
+	background-color: rgba(204,202,63, 0.2);
+	border-color: blue;
+	display: inline-block;
+}
+
+div.pageHolder {
+	background-color: rgb(96,153,214);
+	height: 100vh;
 }

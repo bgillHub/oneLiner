@@ -19,10 +19,12 @@ JavaTopics.allow({
 
 var javaID = 0;
 var javaScriptID = 0;
-var PythonID = 0;
-var ScalaID = 0;
+var pythonID = 0;
+var scalaID = 0;
 
-
+  Accounts.ui.config({
+    passwordSignupFields: "USERNAME_ONLY"
+  });
 
 Template.javaTopicForm.events({
   'click #submitTopic': function(event, template){
@@ -30,16 +32,18 @@ Template.javaTopicForm.events({
     let topicDifficulty = template.find('#topicDifficulty').value;
     let description = template.find('#description').value;
     let responses = "Peer Responses";
+    let authorName = Meteor.user().username;
     javaID = (javaID + 1);
     let topic = {
       topicName: topicName,
       topicDifficulty: topicDifficulty,
       description: description,
       javaID: javaID,
-      responses: responses
+      responses: responses,
+      authorName: authorName
       }
     JavaTopics.insert(topic);
-    Router.go('/topicReader'); 
+    Router.go('/javaNews'); 
     }
   });
 
@@ -49,16 +53,18 @@ Template.javaScriptTopicForm.events({
     let topicDifficulty = template.find('#topicDifficulty').value;
     let description = template.find('#description').value;
     let responses = "Peer Responses";
+    let authorName = Meteor.user().username;
     javaScriptID = (javaScriptID + 1);
     let topic = {
       topicName: topicName,
       topicDifficulty: topicDifficulty,
       description: description,
       javaScriptID: javaScriptID,
-      responses: responses
+      responses: responses,
+      authorName: authorName
       }
     JavaScriptTopics.insert(topic); 
-    Router.go('/topicReader');
+    Router.go('/javascriptNews');
       }
   });
 
@@ -68,16 +74,18 @@ Template.scalaTopicForm.events({
     let topicDifficulty = template.find('#topicDifficulty').value;
     let description = template.find('#description').value;
     let responses = "Peer Responses";
+    let authorName = Meteor.user().username;
     scalaID = (scalaID + 1);
     let topic = {
       topicName: topicName,
       topicDifficulty: topicDifficulty,
       description: description,
       scalaID: scalaID,
-      responses: responses
+      responses: responses,
+      authorName: authorName
       }
     ScalaTopics.insert(topic);  
-    Router.go('/topicReader');
+    Router.go('/scalaNews');
     }
   });
 
@@ -87,22 +95,33 @@ Template.pythonTopicForm.events({
     let topicDifficulty = template.find('#topicDifficulty').value;
     let description = template.find('#description').value;
     let responses = "Peer Responses"; 
+    let authorName = Meteor.user().username;
     pythonID = (pythonID + 1);
     let topic = {
       topicName: topicName,
       topicDifficulty: topicDifficulty,
       description: description,
       pythonID: pythonID,
-      responses: responses
+      responses: responses,
+      authorName: authorName
       }
     PythonTopics.insert(topic);  
-    Router.go('/topicReader');
+    Router.go('/pythonNews');
     }
   });
 
-Template.easyPost.events({
-  'click #submit-btn': function(event, template){
-    topic.responses = topic.responses + Date.now() + " --> " + document.getElementById("reply").value;
+Template.mediumPost.events({
+  'click #submitBtn': function(event, template){
+    console.log("hello");
+    var today = new Date();
+    var dd = today.getDate();
+    var mm = today.getMonth()+1; //January is 0!
+    var yyyy = today.getFullYear();
+    if(dd<10) {dd='0'+dd} 
+    if(mm<10) {mm='0'+mm} 
+    today = mm+'/'+dd+'/'+yyyy;
+    passedResponse = today + " --- " + document.getElementById("reply").value;
+    Meteor.call('addResponse', passedResponse, "Indentation")
     }
   });
 
@@ -161,7 +180,7 @@ Template.javaNews.helpers({
 
 Template.javascriptNews.helpers({
   topics: function () {
-    return JavaTopics.find();
+    return JavaScriptTopics.find();
   },
   titleFormat: function () {
     return this.topicName;
@@ -175,7 +194,7 @@ Template.javascriptNews.helpers({
 
 Template.pythonNews.helpers({
   topics: function () {
-    return JavaTopics.find();
+    return PythonTopics.find();
   },
   titleFormat: function () {
     return this.topicName;
@@ -189,7 +208,7 @@ Template.pythonNews.helpers({
 
 Template.scalaNews.helpers({
   topics: function () {
-    return JavaTopics.find();
+    return ScalaTopics.find();
   },
   titleFormat: function () {
     return this.topicName;
@@ -198,5 +217,26 @@ Template.scalaNews.helpers({
     if (this.topicDifficulty == "Easy") {return "rgb(255, 93, 10)"};
     if (this.topicDifficulty == "Medium") {return "rgb(255, 93, 10)"};
     if (this.topicDifficulty == "Hard") {return "rgb(255, 93, 10)"};
+  }
+});
+
+Template.myPosts.helpers({
+  fetchUserJavaPosts: function() {
+  return JavaTopics.find({'authorName': Meteor.user().username});
+  },
+    fetchUserJavascriptPosts: function() {
+  return JavaScriptTopics.find({'authorName': Meteor.user().username});
+  },
+    fetchUserScalaPosts: function() {
+  return ScalaTopics.find({'authorName': Meteor.user().username});
+  },
+    fetchUserPythonPosts: function() {
+  return PythonTopics.find({'authorName': Meteor.user().username});
+  },
+  displayPostNames: function() {
+    return this.topicName;
+  },
+  displayPostResponses: function() {
+    return this.responses;
   }
 });

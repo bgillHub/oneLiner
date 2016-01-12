@@ -1,4 +1,5 @@
 <template name = "scalaNews" >
+  <div class = "pageHolder">
   <nav class="navbar navbar-default">
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
@@ -8,13 +9,13 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="#">OneLiner</a>
+      <a class="navbar-brand" href="/myPosts">View My Posts</a>
     </div>
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
         <li><a href="/languages">Home</a></li>
-        <li class ="active"><a href="/javaNews">Java</a></li>
+        <li><a href="/javaNews">Java</a></li>
         <li><a href="/javascriptNews">Javascript</a></li>
         <li><a href="/pythonNews">Python</a></li>
         <li class="active"><a href="/scalaNews">Scala</a></li>
@@ -31,4 +32,5 @@
 		</row>
 	</div>
 		<center><a href ='/scalaTopicForm'><button type="button" class="btn btn-primary" width='1000px'>Create New Post</button></a></center>
+  </div>
 </template>

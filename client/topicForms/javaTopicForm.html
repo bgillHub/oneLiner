@@ -1,4 +1,5 @@
 <template name = "javaTopicForm">
+  <div class="pageHolder">
   <nav class="navbar navbar-default">
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
@@ -8,7 +9,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="#">OneLiner</a>
+      <a class="navbar-brand" href="/myPosts">View My Posts</a>
     </div>
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -35,7 +36,7 @@
   				<h3>Topic Difficulty Level:</h3>
   				<label class="radio-inline"><input type="radio" name="topicDifficulty" id="topicDifficulty" value='Easy'>Easy</label>
 					<label class="radio-inline"><input type="radio" name="topicDifficulty" id="topicDifficulty" value='Medium'>Medium</label>
-					<label class="radio-inline"><input type="radio" name="topicDifficulty" id="topicDifficulty" value='Medium'>Hard</label> 
+					<label class="radio-inline"><input type="radio" name="topicDifficulty" id="topicDifficulty" value='Hard'>Hard</label> 
   			</div>
   			 <div class="form-group">
   				<label class="control-label">Description</label>
@@ -43,12 +44,11 @@
   				  <textarea class="form-control" rows="5" id="description" maxlength="1000"></textarea>
   				</div>
   			</div>
-  			<div class="form-group">
   				<div class ="col-md-10 col-md-offset-2">
   					<button id="submitTopic" typer="button">Submit</button>
-  				</div>
   			</div>
   		</form>
   	</div>
   </div>
+</div>
 </template>
