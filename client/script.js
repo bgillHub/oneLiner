@@ -1,7 +1,7 @@
 JavaTopics = new Mongo.Collection('JavaTopics');
 JavaScriptTopics = new Mongo.Collection('JavaScriptTopics');
 PythonTopics = new Mongo.Collection('PythonTopics');
-ScalaTopics = new Mongo.Collection('ScalaTopics');
+ScalaTopics = new Mongo.Collection('ScalaTopics'); 
 
 Meteor.subscribe('JavaTopics');
 
@@ -31,7 +31,7 @@ Template.javaTopicForm.events({
     let topicName = template.find('#topicName').value;
     let topicDifficulty = template.find('#topicDifficulty').value;
     let description = template.find('#description').value;
-    let responses = "Peer Responses";
+    let responses = "Bulletin Responses:";
     let authorName = Meteor.user().username;
     javaID = (javaID + 1);
     let topic = {
@@ -52,7 +52,7 @@ Template.javaScriptTopicForm.events({
     let topicName = template.find('#topicName').value;
     let topicDifficulty = template.find('#topicDifficulty').value;
     let description = template.find('#description').value;
-    let responses = "Peer Responses";
+    let responses = "Bulletin Responses:";
     let authorName = Meteor.user().username;
     javaScriptID = (javaScriptID + 1);
     let topic = {
@@ -73,7 +73,7 @@ Template.scalaTopicForm.events({
     let topicName = template.find('#topicName').value;
     let topicDifficulty = template.find('#topicDifficulty').value;
     let description = template.find('#description').value;
-    let responses = "Peer Responses";
+    let responses = "Bulletin Responses:";
     let authorName = Meteor.user().username;
     scalaID = (scalaID + 1);
     let topic = {
@@ -94,7 +94,7 @@ Template.pythonTopicForm.events({
     let topicName = template.find('#topicName').value;
     let topicDifficulty = template.find('#topicDifficulty').value;
     let description = template.find('#description').value;
-    let responses = "Peer Responses"; 
+    let responses = "Bulletin Responses:"; 
     let authorName = Meteor.user().username;
     pythonID = (pythonID + 1);
     let topic = {
@@ -110,6 +110,22 @@ Template.pythonTopicForm.events({
     }
   });
 
+Template.easyPost.events({
+  'click #submitBtn': function(event, template){
+    console.log("hello");
+    var today = new Date();
+    var dd = today.getDate();
+    var mm = today.getMonth()+1; //January is 0!
+    var yyyy = today.getFullYear();
+    if(dd<10) {dd='0'+dd} 
+    if(mm<10) {mm='0'+mm} 
+    today = mm+'/'+dd+'/'+yyyy;
+    passedResponse = today + " --- " + document.getElementById("reply").value;
+    Meteor.call('addResponse', passedResponse, chosenTopic.topicName);
+    Router.go("/languages");
+    }
+  });
+
 Template.mediumPost.events({
   'click #submitBtn': function(event, template){
     console.log("hello");
@@ -121,9 +137,43 @@ Template.mediumPost.events({
     if(mm<10) {mm='0'+mm} 
     today = mm+'/'+dd+'/'+yyyy;
     passedResponse = today + " --- " + document.getElementById("reply").value;
-    Meteor.call('addResponse', passedResponse, "Indentation")
+    Meteor.call('addResponse', passedResponse, chosenTopic.topicName);
+    Router.go("/languages");
     }
   });
+
+Template.hardPost.events({
+  'click #submitBtn': function(event, template){
+    console.log("hello");
+    var today = new Date();
+    var dd = today.getDate();
+    var mm = today.getMonth()+1; //January is 0!
+    var yyyy = today.getFullYear();
+    if(dd<10) {dd='0'+dd} 
+    if(mm<10) {mm='0'+mm} 
+    today = mm+'/'+dd+'/'+yyyy;
+    passedResponse = today + " --- " + document.getElementById("reply").value;
+    Meteor.call('addResponse', passedResponse, chosenTopic.topicName);
+    Router.go("/languages");
+    }
+  });
+
+Template.javaNews.events({
+  'click #titleButton': function(event, template){
+    console.log("Test");
+    var buttonVal = event.currentTarget.innerHTML;
+    console.log("Clicked on: " + buttonVal);
+    chosenTopic = JavaTopics.findOne({topicName:buttonVal});
+    document.getElementById("modalTitle").innerHTML = chosenTopic.topicName;
+    document.getElementById("modalDescription").innerHTML = chosenTopic.description;
+    },
+  'click #writeResponse': function(event, template){
+    console.log(chosenTopic.topicDifficulty);
+    if (chosenTopic.topicDifficulty == 'Easy'){Router.go('/easyPost');}
+    if (chosenTopic.topicDifficulty == 'Medium'){Router.go('/mediumPost');}
+    if (chosenTopic.topicDifficulty == 'Hard') {Router.go('/hardPost');}
+    } 
+});
 
 
 
@@ -172,9 +222,9 @@ Template.javaNews.helpers({
     return this.topicName;
   },
   colorPicker: function () {
-    if (this.topicDifficulty == "Easy") {return "rgb(255, 93, 10)"};
-    if (this.topicDifficulty == "Medium") {return "rgb(255, 93, 10)"};
-    if (this.topicDifficulty == "Hard") {return "rgb(255, 93, 10)"};
+    if (this.topicDifficulty == "Easy") {return "white"};
+    if (this.topicDifficulty == "Medium") {return "white"};
+    if (this.topicDifficulty == "Hard") {return "white"};
   }
 });
 
