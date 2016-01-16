@@ -288,5 +288,8 @@ Template.myPosts.helpers({
   },
   displayPostResponses: function() {
     return this.responses;
+  },
+  userName: function() {
+    return Meteor.user().username;
   }
 });

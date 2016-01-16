@@ -21,33 +21,33 @@
       </ul>
     </div><!-- /.navbar-collapse -->
     </nav>
-    <center><p>My Posts</p></center>
+    <center><p class="pageTitle">{{userName}}'s Posts</p></center>
     <hr>
 	  {{#each fetchUserJavaPosts}}
 	  <div class ="topicWrap">
-	    <center><div>{{displayPostNames}}</div></center>
-	    <center><div>{{displayPostResponses}}</div></center>
+	    <center><div class = "myPostsNames">{{displayPostNames}}</div></center>
+	    <center><div class = "myPostsResponses">{{displayPostResponses}}</div></center>
 	  </div>
 	  <hr>
 	  {{/each}}
 	  {{#each fetchUserJavascriptPosts}}
 	  <div class ="topicWrap">
-	    <center><div>{{displayPostNames}}</div></center>
-	    <center><div>{{displayPostResponses}}</div></center>
+	    <center><div class = "myPostsNames">{{displayPostNames}}</div></center>
+	    <center><div class = "myPostsResponses">{{displayPostResponses}}</div></center>
 	  </div>
 	  <hr>
 	  {{/each}}
 	  {{#each fetchUserScalaPosts}}
 	  <div class ="topicWrap">
-	    <center><div>{{displayPostNames}}</div></center>
-	    <center><div>{{displayPostResponses}}</div></center>
+	    <center><div class = "myPostsNames">{{displayPostNames}}</div></center>
+	    <center><div class = "myPostsResponses">{{displayPostResponses}}</div></center>
 	  </div>
 	  <hr>
 	  {{/each}}
 	  {{#each fetchUserPythonPosts}}
 	  <div class ="topicWrap">
-	    <center><div>{{displayPostNames}}</div></center>
-	    <center><div>{{displayPostResponses}}</div></center>
+	    <center><div class = "myPostsNames">{{displayPostNames}}</div></center>
+	    <center><div class = "myPostsResponses">{{displayPostResponses}}</div></center>
 	  </div>
 	  <hr>
 	  {{/each}}	  	  

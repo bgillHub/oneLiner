@@ -2,6 +2,7 @@
   <div class = "pageHolder">
   <nav class="navbar navbar-default">
     <!-- Brand and toggle get grouped for better mobile display -->
+    <a class="navbar-brand" href="/myPosts">View My Posts</a>
     <div class="navbar-header">
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
         <span class="sr-only">Explore</span>
@@ -9,7 +10,6 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="/myPosts">View My Posts</a>
     </div>
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -23,11 +23,12 @@
     </div><!-- /.navbar-collapse -->
 </nav>
 	<div class ="container" height='100%' style="background-color:rgb(76, 45, 115)">
-		<center><h1 style="background-color: rgb(170, 160, 57)">All Scala Topics</h1></center>
+    <div class = 'forumHeader'>
+		<center><p class="pageTitle">All Scala Topics</p></center>
+    </div>
 		<row >
       {{#each topics}}
-        <center><div width="100%" style="background-color: rgb(205, 13, 18); color: white">{{titleFormat}}</div></center>
-        <center><a href="/mediumPost" class="btn btn-info" role="button"><div>Reply</div></a></center>
+        <center><button width="100%" class= "postButton" data-toggle="modal" data-target="#myModal" id="titleButton">{{titleFormat}}</button></center>
       {{/each}}
 		</row>
 	</div>

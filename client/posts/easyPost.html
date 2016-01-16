@@ -2,6 +2,7 @@
   <div class="pageHolder">
   <nav class="navbar navbar-default">
     <!-- Brand and toggle get grouped for better mobile display -->
+    <a class="navbar-brand" href="/myPosts" ><p class="myPostsLink">View My Posts</p></a>
     <div class="navbar-header">
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
         <span class="sr-only">Explore</span>
@@ -9,7 +10,6 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="#">OneLiner</a>
     </div>
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -23,13 +23,17 @@
     </div><!-- /.navbar-collapse -->
 </nav>
 	<div class ="container" height='100%' style="background-color:rgb(76, 45, 115)">
-		<center><h1 style="background-color: rgb(170, 160, 57)">Write your response.</h1></center>
+    <div class = 'forumHeader'>
+		<center><p class = "pageTitle">Write your response.</p></center>
+    </div>
 		<row >
 		<div class="form-group">
-  				<center><label class="col-md-2 control-label " style="background-color: rgb(170, 160, 57)">Difficulty: Easy. Limit: 100 characters.</label>
+          <div class = 'forumHeader'>
+  				<center><p class = 'subTitle'>Difficulty: Easy. Limit: 100 characters.</p></center>
+          </div>
   				<div class ="col-md-10">
   				  <textarea class="form-control" rows="5" id="reply" maxlength="100"></textarea>
-  				</div> </center>
+  				</div>
   			</div>	
 		</row>
 	</div>

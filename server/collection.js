@@ -7,8 +7,5 @@ Meteor.methods({
     JavaTopics.update(
       {topicName:nameOf},
       {$set: {responses: newResponse}});
-    },
-    changeModalTitle: function(){
-    	
     }
 });

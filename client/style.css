@@ -25,3 +25,54 @@ div.pageHolder {
 	background-color: rgb(96,153,214);
 	height: 100vh;
 }
+
+div.narrowerTop {
+	border-radius: 10px, 10px, 0px,0px;
+	background-color: rgb(96,153,214);
+	height: 30vh;
+	width: 100%;
+}
+
+div.narrowerBottom {
+	border-radius: 0px,0px, 10px, 10px;
+	background-color: rgb(96,153,214);
+	height: 30vh;
+	width: 100%;
+}
+
+p.pageTitle {
+	font-style: italic;
+	font-size: 25px;
+	font-family: "Comic Sans MS", cursive, sans-serif;
+}
+
+button.postButton {
+	background-color: rgb(205, 13, 18);
+	 color: white; 
+	 font-size: 20px;
+	 margin: 10px;
+}
+
+p.subTitle {
+	 color: white; 
+	 font-size: 20px;
+	 margin: 10px;
+}
+
+p.myPostsLink {
+	color: white;
+	font-size: 16px;
+	font-family: "Comic Sans MS", cursive, sans-serif;
+}
+
+div.myPostsNames {
+	font-family: Arial, Helvetica, sans-serif;
+	color: white;
+	font-size: 10px;
+}
+
+div.myPostsResponses {
+	font-family: Arial, Helvetica, sans-serif;
+	color: white;
+	font-size: 10px;
+}
