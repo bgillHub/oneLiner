@@ -2,7 +2,6 @@
   <div class="pageHolder">
   <nav class="navbar navbar-default">
     <!-- Brand and toggle get grouped for better mobile display -->
-    <a class="navbar-brand" href="/myPosts" ><p class="myPostsLink">View My Posts</p></a>
     <div class="navbar-header">
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
         <span class="sr-only">Explore</span>
@@ -19,38 +18,29 @@
         <li><a href="/javascriptNews">Javascript</a></li>
         <li><a href="/pythonNews">Python</a></li>
         <li><a href="/scalaNews">Scala</a></li>
+        <li><a href="/myPosts" >View My Posts</a></li>
       </ul>
     </div><!-- /.navbar-collapse -->
 </nav>
   <div class = 'container'>
   	<div class = "col-md-12">
-  		<h2>Fill out the topic form, please.</h2>
+  		<div class= 'pageTitle'>Fill out the topic form, please.</div>
   		<form class="form-horizontal">
   			<div class="form-group">
-          <div class="col-md-10">
-  				  <label class="control-label">Topic Name:</label>
-          </div>
-  				<div class ="col-md-10">
+  				  <h3 style='color:white'>Topic Name:</h3>
   					<input type="text" id="topicName" class="form-control">
-  				</div>
   			</div>
   			<div class="form-group">
-  				<h3>Topic Difficulty Level:</h3>
-          <div class="col-md-10 col-md-offset-2">
+  				<h3 style='color:white'>Topic Difficulty Level:</h3>
   				  <label class="radio-inline"><input type="radio" name="topicDifficulty" id="topicDifficulty" value='Easy'>Easy</label>
 					  <label class="radio-inline"><input type="radio" name="topicDifficulty" id="topicDifficulty" value='Medium'>Medium</label>
 					  <label class="radio-inline"><input type="radio" name="topicDifficulty" id="topicDifficulty" value='Hard'>Hard</label>
-          </div>
   			</div>
   			 <div class="form-group">
-  				<label class="control-label">Description</label>
-  				<div class ="col-md-10">
+  				<h3 style='color:white'>Description</h3>
   				  <textarea class="form-control" rows="5" id="description" maxlength="1000"></textarea>
-  				</div>
   			</div>
-  				<div class ="col-md-10 col-md-offset-2">
   					<button id="submitTopic" typer="button">Submit</button>
-  			</div>
   		</form>
   	</div>
   </div>

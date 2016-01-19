@@ -2,7 +2,6 @@
   <div class="pageHolder">
   <nav class="navbar navbar-default">
     <!-- Brand and toggle get grouped for better mobile display -->
-    <a class="navbar-brand" href="/myPosts">View My Posts</a>
     <div class="navbar-header">
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
         <span class="sr-only">Explore</span>
@@ -19,13 +18,12 @@
         <li><a href="/javascriptNews">Javascript</a></li>
         <li class="active"><a href="/pythonNews">Python</a></li>
         <li><a href="/scalaNews">Scala</a></li>
+        <li><a href="/myPosts" >View My Posts</a></li>
       </ul>
     </div><!-- /.navbar-collapse -->
 </nav>
 	<div class ="container" height='100%' style="background-color:rgb(76, 45, 115)">
-    <div class="forumHeader">
-		<center><p class="pageTitle">All Python Topics</p></center>
-    </div>
+		<center><div class="pageTitle">All Python Topics</div></center>
 		<row >     
       {{#each topics}}
         <center><button width="100%" class= "postButton" data-toggle="modal" data-target="#myModal" id="titleButton">{{titleFormat}}</button></center>

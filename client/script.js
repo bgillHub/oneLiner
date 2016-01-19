@@ -31,7 +31,7 @@ Template.javaTopicForm.events({
     let topicName = template.find('#topicName').value;
     let topicDifficulty = template.find('#topicDifficulty').value;
     let description = template.find('#description').value;
-    let responses = "Bulletin Responses:";
+    let responses = "Bulletin Responses:" +'\n';
     let authorName = Meteor.user().username;
     javaID = (javaID + 1);
     let topic = {
@@ -52,7 +52,7 @@ Template.javaScriptTopicForm.events({
     let topicName = template.find('#topicName').value;
     let topicDifficulty = template.find('#topicDifficulty').value;
     let description = template.find('#description').value;
-    let responses = "Bulletin Responses:";
+    let responses = "Bulletin Responses:"+'\n';
     let authorName = Meteor.user().username;
     javaScriptID = (javaScriptID + 1);
     let topic = {
@@ -73,7 +73,7 @@ Template.scalaTopicForm.events({
     let topicName = template.find('#topicName').value;
     let topicDifficulty = template.find('#topicDifficulty').value;
     let description = template.find('#description').value;
-    let responses = "Bulletin Responses:";
+    let responses = "Bulletin Responses:" +'\n';
     let authorName = Meteor.user().username;
     scalaID = (scalaID + 1);
     let topic = {
@@ -94,7 +94,7 @@ Template.pythonTopicForm.events({
     let topicName = template.find('#topicName').value;
     let topicDifficulty = template.find('#topicDifficulty').value;
     let description = template.find('#description').value;
-    let responses = "Bulletin Responses:"; 
+    let responses = "Bulletin Responses:" +'\n'; 
     let authorName = Meteor.user().username;
     pythonID = (pythonID + 1);
     let topic = {

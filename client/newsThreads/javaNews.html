@@ -2,7 +2,6 @@
   <div class ="pageHolder">
   <nav class="navbar navbar-default">
     <!-- Brand and toggle get grouped for better mobile display -->
-    <a class="navbar-brand" href="/myPosts" ><p class="myPostsLink">View My Posts</p></a>
     <div class="navbar-header">
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
         <span class="sr-only">Explore</span>
@@ -11,28 +10,22 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li><a href="/languages">Home</a></li>
+        <li class= "inactive"><a href="/languages">Home</a></li>
         <li class ="active"><a href="/javaNews">Java</a></li>
         <li><a href="/javascriptNews">Javascript</a></li>
         <li><a href="/pythonNews">Python</a></li>
         <li><a href="/scalaNews">Scala</a></li>
+        <li><a href="/myPosts" >View My Posts</a></li>
       </ul>
     </div><!-- /.navbar-collapse -->
 </nav>
-	<div class ="container" height='100%' style="background-color:rgb(76, 45, 115)">
-		<div class ='forumHeader'>
-			<p class="pageTitle">All Java Topics</p>
-		</div>/
-		<row >
-    <div id ="buttonHolder">
+	<div class ="container" height='100%'>
+			<div class="pageTitle">All Java Topics</div>
 			{{#each topics}}
-        <center><button width="100%" class= "postButton" data-toggle="modal" data-target="#myModal" id="titleButton">{{titleFormat}}</button></center>
+        <center><div class="col-md-4"><button width="100%" class= "postButton" data-toggle="modal" data-target="#myModal" id="titleButton">{{titleFormat}}</button></div></center>
       {{/each}}
-    </div>
-		</row>
 	</div>
-		<center><a href ='/javaTopicForm'><button type="button" class="btn btn-primary" width='1000px'>Create New Post</button></a></center>
-
+		<center><a href ='/javaTopicForm'><button type="button" class="creator">Create New Post</button></a></center>
 <!-- Modal -->
 <div id="myModal" class="modal fade" role="dialog">
   <div class="modal-dialog">
@@ -55,7 +48,7 @@
 </div>    
   </div>
   <script>
-    document.body.style.background="rgb(96,153,214)";
+    document.body.style.background="rgb(125,168,255)";
   </script>
 </template>
 

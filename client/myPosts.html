@@ -21,12 +21,12 @@
       </ul>
     </div><!-- /.navbar-collapse -->
     </nav>
-    <center><p class="pageTitle">{{userName}}'s Posts</p></center>
+    <div class="pageTitle">{{userName}}'s Posts</div>
     <hr>
 	  {{#each fetchUserJavaPosts}}
 	  <div class ="topicWrap">
 	    <center><div class = "myPostsNames">{{displayPostNames}}</div></center>
-	    <center><div class = "myPostsResponses">{{displayPostResponses}}</div></center>
+	    <center><div class = "myPostsResponses"><span class="pre">{{displayPostResponses}}</span></div></center>
 	  </div>
 	  <hr>
 	  {{/each}}
