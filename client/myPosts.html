@@ -15,45 +15,53 @@
     </nav>
     <div class="pageTitle">{{userName}}'s Posts</div>
     <hr>
+    <div class="row-fluid">
     <div class="altColorContainer col-md-12">
 	  {{#each fetchUserJavaPosts}}
 	  <div class ="postWrap">
 	    <center><div class = "myPostsNames col-md-4 col-md-offset-4">{{displayPostNames}}</div></center>
-	    <center><div class = "myPostsResponses col-md-4 col-md-offset-4"><span class="pre">{{displayPostResponses}}</span></div></center>
+	    <center><div class = "myPostsResponse"><span class="pre">{{displayPostResponses}}</span></div></center>
 	  </div>
 	  {{/each}}
 	</div>
 	<div class="altColorContainer col-md-12">
 	  {{#each fetchUserJavascriptPosts}}
 	  <div class ="postWrap">
-	    <center><div class = "myPostsNames">{{displayPostNames}}</div></center>
-	    <center><div class = "myPostsResponses">{{displayPostResponses}}</div></center>
+	    <center><div class = "myPostsNames col-md-4 col-md-offset-4">{{displayPostNames}}</div></center>
+	    <center><div class = "myPostsResponses col-md-4 col-md-offset-4">{{displayPostResponses}}</div></center>
 	  </div>
 	  {{/each}}
 	</div>
 	<div class="altColorContainer col-md-12">
 	  {{#each fetchUserScalaPosts}}
 	  <div class ="postWrap">
-	    <center><div class = "myPostsNames">{{displayPostNames}}</div></center>
-	    <center><div class = "myPostsResponses">{{displayPostResponses}}</div></center>
+	    <center><div class = "myPostsNames col-md-4 col-md-offset-4">{{displayPostNames}}</div></center>
+	    <center><div class = "myPostsResponses col-md-4 col-md-offset-4">{{displayPostResponses}}</div></center>
 	  </div>
 	  {{/each}}
 	</div>
 	<div class="altColorContainer col-md-12">
 	  {{#each fetchUserPythonPosts}}
 	  <div class ="postWrap">
-	    <center><div class = "myPostsNames">{{displayPostNames}}</div></center>
-	    <center><div class = "myPostsResponses">{{displayPostResponses}}</div></center>
+	    <center><div class = "myPostsNames col-md-4 col-md-offset-4">{{displayPostNames}}</div></center>
+	    <center><div class = "myPostsResponses col-md-4 col-md-offset-4">{{displayPostResponses}}</div></center>
 	  </div>
 	  {{/each}}
+	</div>
 	</div>  	  	  
     </div>
     <script>
       document.body.style.background="rgb(102,99,178)";
-      var x = document.getElementsByClassName("postWrap");
+      var x = document.getElementsByClassName("myPostsNames");
       var i;
       for (i = 0; i < x.length; i++) {
-        x[i].style.color = "red";
+        x[i].style.backgroundColor = "rgb(255,91,0)";
       }
+      var y = document.getElementsByClassName("myPostsResponses");
+      var t;
+      for (t = 0; t < y.length; t++) {
+        y[t].style.backgroundColor = "rgb(178, 178, 32)";
+        y[t].style.wordWrap = "break-word";
+      }            
     </script>
 </template>

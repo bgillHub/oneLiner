@@ -76,10 +76,11 @@ div.myPostsNames {
 }
 
 div.myPostsResponses {
-	display: inline-block;
 	font-family: Arial, Helvetica, sans-serif;
 	color: white;
-	font-size: 20px;
+	font-size: 10px;
+	word-wrap: break-word;
+	white-space: pre-line;  
 }
 
 div.postWrap {
@@ -130,4 +131,8 @@ nav.topHat {
 
 .navbar .nav > li > a {
     color: black;
+}
+
+.row-fluid {
+    word-wrap: break-word;  
 }
