@@ -1,33 +1,25 @@
 <template name = "easyPost" >
   <div class="pageHolder">
-  <nav class="navbar navbar-default">
+  <nav class="navbar navbar-inverse topHat">
     <!-- Brand and toggle get grouped for better mobile display -->
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-        <span class="sr-only">Explore</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-    </div>
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
         <li><a href="/languages">Home</a></li>
         <li><a href="/javaNews">Java</a></li>
-        <li><a href="/javascriptNews">Javascript</a></li>
+        <li><a href="/javascriptNews">JavaScript</a></li>
         <li><a href="/pythonNews">Python</a></li>
         <li><a href="/scalaNews">Scala</a></li>
         <li><a class="navbar-brand" href="/myPosts" >View My Posts</a></li>
       </ul>
     </div><!-- /.navbar-collapse -->
 </nav>
-	<div class ="container" height='100%'>
-		<div class = "pageTitle">Write your response.</div>
+	<div class ="container col-md-12" height='100%'>
+		<div class = "pageTitle col-md-12">Write your response.</div>
 		<row >
 		<div class="form-group">
-  				<center><p class = 'subTitle'>Difficulty: Easy. Limit: 100 characters.</p></center>
-  				<div class ="col-md-10">
+  				<center><p class = 'subTitle col-md-12'>Difficulty: Easy. Limit: 100 characters.</p></center>
+  				<div class ="col-md-8 col-md-offset-2">
   				  <center><textarea class="form-control" rows="5" id="reply" maxlength="100"></textarea></center>
   				</div>
   			</div>	

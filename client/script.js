@@ -29,11 +29,10 @@ var scalaID = 0;
 Template.javaTopicForm.events({
   'click #submitTopic': function(event, template){
     let topicName = template.find('#topicName').value;
-    let topicDifficulty = template.find('#topicDifficulty').value;
+    let topicDifficulty = $('#difficulty input:radio:checked').val()
     let description = template.find('#description').value;
-    let responses = "Bulletin Responses:" +'\n';
+    let responses = '\n';
     let authorName = Meteor.user().username;
-    javaID = (javaID + 1);
     let topic = {
       topicName: topicName,
       topicDifficulty: topicDifficulty,
@@ -50,9 +49,14 @@ Template.javaTopicForm.events({
 Template.javaScriptTopicForm.events({
   'click #submit-btn': function(event, template){
     let topicName = template.find('#topicName').value;
-    let topicDifficulty = template.find('#topicDifficulty').value;
-    let description = template.find('#description').value;
-    let responses = "Bulletin Responses:"+'\n';
+    let easyButton = template.find('#easyDifficulty');
+    let mediumButton = template.find('#mediumDifficulty');
+    let hardButton = template.find('#hardDifficulty');
+    if (easyButton.checked) {difficulty = 'Easy'};
+    if (mediumButton.checked) {difficulty = 'Medium'};
+    if (hardButton.checked) {difficulty = 'Hard'};
+    let topicDifficulty = difficulty;    let description = template.find('#description').value;
+    let responses = '\n';
     let authorName = Meteor.user().username;
     javaScriptID = (javaScriptID + 1);
     let topic = {
@@ -71,9 +75,15 @@ Template.javaScriptTopicForm.events({
 Template.scalaTopicForm.events({
   'click #submit-btn': function(event, template){
     let topicName = template.find('#topicName').value;
-    let topicDifficulty = template.find('#topicDifficulty').value;
+    let easyButton = template.find('#easyDifficulty');
+    let mediumButton = template.find('#mediumDifficulty');
+    let hardButton = template.find('#hardDifficulty');
+    if (easyButton.checked) {difficulty = 'Easy'};
+    if (mediumButton.checked) {difficulty = 'Medium'};
+    if (hardButton.checked) {difficulty = 'Hard'};
+    let topicDifficulty = difficulty;
     let description = template.find('#description').value;
-    let responses = "Bulletin Responses:" +'\n';
+    let responses = '\n';
     let authorName = Meteor.user().username;
     scalaID = (scalaID + 1);
     let topic = {
@@ -92,9 +102,15 @@ Template.scalaTopicForm.events({
 Template.pythonTopicForm.events({
   'click #submit-btn': function(event, template){
     let topicName = template.find('#topicName').value;
-    let topicDifficulty = template.find('#topicDifficulty').value;
+    let easyButton = template.find('#easyDifficulty');
+    let mediumButton = template.find('#mediumDifficulty');
+    let hardButton = template.find('#hardDifficulty');
+    if (easyButton.checked) {difficulty = 'Easy'};
+    if (mediumButton.checked) {difficulty = 'Medium'};
+    if (hardButton.checked) {difficulty = 'Hard'};
+    let topicDifficulty = difficulty;    
     let description = template.find('#description').value;
-    let responses = "Bulletin Responses:" +'\n'; 
+    let responses = '\n'; 
     let authorName = Meteor.user().username;
     pythonID = (pythonID + 1);
     let topic = {
@@ -169,9 +185,12 @@ Template.javaNews.events({
     },
   'click #writeResponse': function(event, template){
     console.log(chosenTopic.topicDifficulty);
+    $('#myModal').modal({show: false});
+    $('#myModal').on('hidden.bs.modal', function (e) {
     if (chosenTopic.topicDifficulty == 'Easy'){Router.go('/easyPost');}
     if (chosenTopic.topicDifficulty == 'Medium'){Router.go('/mediumPost');}
     if (chosenTopic.topicDifficulty == 'Hard') {Router.go('/hardPost');}
+  })
     } 
 });
 
@@ -220,11 +239,13 @@ Template.javaNews.helpers({
   },
   titleFormat: function () {
     return this.topicName;
-  },
+  }, 
   colorPicker: function () {
-    if (this.topicDifficulty == "Easy") {return "white"};
-    if (this.topicDifficulty == "Medium") {return "white"};
-    if (this.topicDifficulty == "Hard") {return "white"};
+    console.log("test");
+    console.log(this.topicDifficulty);
+    if (this.topicDifficulty == "Easy") {return rgb(34,139,34)};
+    if (this.topicDifficulty == "Medium") {return rgb(255,140,0)};
+    if (this.topicDifficulty == "Hard") {return rgb(128,0,0)};
   }
 });
 
